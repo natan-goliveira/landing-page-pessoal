@@ -11,23 +11,21 @@
         :root {
             --text-color: rgba(255, 255, 255, 0.9);
             --border-color: rgba(255, 255, 255, 0.5);
-            /* Fallback para mobile com imagem estática escura */
-            --bg-url: url('./assets/bg-mobile.jpg');
             --surface-color: rgba(255, 255, 255, 0.3);
             --surface-profile-hover: rgba(255, 255, 255, 0.05);
             --surface-social-hover: rgba(255, 255, 255, 0.2);
             --icon-moom-sun: url("/assets/moon-stars.svg");
+
         }
 
         html.ligth {
             --text-color: rgba(0, 0, 0, 0.9);
             --border-color: rgba(0, 0, 0, 0.5);
-            /* Fallback para mobile com imagem estática clara */
-            --bg-url: url('./assets/bg-mobile-light.jpg');
             --surface-color: rgba(0, 0, 0, 0.1);
             --surface-profile-hover: rgba(0, 0, 0, 0.02);
             --surface-social-hover: rgba(0, 0, 0, 0.1);
             --icon-moom-sun: url("/assets/sun.svg");
+
         }
 
         body {
@@ -36,43 +34,43 @@
             color: var(--text-color);
         }
 
-        .video-background {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -2;
-            object-fit: cover;
-        }
-
-        .video-background video {
-            width: 100%; height: 100%;
-            object-fit: cover;
-        }
-
-        #video-container-drak { display: block; }
-        #video-container-light { display: none; }
-        
-        html.ligth #video-container-dark { display: none; }
-        html.ligth #video-container-light { display: block; }
+    
         
         
         .overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background-image: var(--bg-animation-overlay);
             z-index: -1;
         }
-        html.ligth .overlay {
-            background: rgba(255, 255, 255, 0.4);
+        html.ligth #bg-pop-filter {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        #bg-pop-filter {
+            position: relative;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
 
         #content {
             width: 100%;
             max-width: 588px;
             margin: 56px auto 0;
-            padding: 0 24px;
+            padding: 0 56px;    
         }
+        
         #profile {
             text-align: center;
             padding: 24px;
